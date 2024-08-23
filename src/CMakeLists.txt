@@ -5,5 +5,6 @@ add_executable(compiler main.cpp)
 # that we wish to use
 llvm_map_components_to_libnames(llvm_libs support core irreader)
 
+target_include_directories(compiler PRIVATE ${CMAKE_SOURCE_DIR}/include)
 # Link against LLVM libraries
 target_link_libraries(compiler ${llvm_libs})
