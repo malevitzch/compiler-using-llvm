@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-enum class Token
+enum class TokenType
 {
   Operator, //anything that conists of the characters dedicated to operators
   Number, //consisting of digits only
@@ -14,7 +14,15 @@ enum class CharType
   Whitespace,
   Digit,
   NameChar, //letters and underscores
-  Singleton
+  Singleton,
+  Unknown
 };
 
-std::vector<std::string> get_tokens_from_file(std::string filename);
+struct TokenMetadata
+{
+  std::size_t line;
+  TokenType token_type;
+  TokenMetadata(size_t line, TokenType token_type);
+};
+
+std::vector<std::pair<std::string, TokenMetadata>> get_tokens_from_file(std::string filename);
