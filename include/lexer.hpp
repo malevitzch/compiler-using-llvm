@@ -30,6 +30,8 @@ namespace char_tests
 
 CharType get_char_type(char ch);
 
+
+//TODO: this should hold the string of the token so the function does not have pairs but just token with metadata
 struct TokenMetadata
 {
   std::size_t line;
