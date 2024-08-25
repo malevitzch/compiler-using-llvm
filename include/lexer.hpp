@@ -14,6 +14,7 @@ enum class CharType
   Whitespace,
   Digit,
   NameChar, //letters and underscores
+  Operator,
   Singleton,
   Unknown
 };
@@ -23,6 +24,7 @@ namespace char_tests
   bool is_whitespace(char ch);
   bool is_digit(char ch);
   bool is_name_char(char ch);
+  bool is_operator_char(char ch);
   bool is_singleton(char ch);
 };
 
