@@ -18,6 +18,16 @@ enum class CharType
   Unknown
 };
 
+namespace char_tests
+{
+  bool is_whitespace(char ch);
+  bool is_digit(char ch);
+  bool is_name_char(char ch);
+  bool is_singleton(char ch);
+};
+
+CharType get_char_type(char ch);
+
 struct TokenMetadata
 {
   std::size_t line;
