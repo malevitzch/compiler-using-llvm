@@ -35,6 +35,9 @@ namespace char_tests
 
 };
 
+Token::Token(std::string contents, std::size_t line_index, TokenType type) : contents(contents), line_index(line_index), type(type) {}
+
+
 std::vector<Token> get_tokens_from_file(std::string filename)
 {
   std::vector<Token> tokens;
