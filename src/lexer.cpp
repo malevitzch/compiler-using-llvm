@@ -35,8 +35,18 @@ namespace char_tests
 
 };
 
-Token::Token(std::string contents, std::size_t line_index, TokenType type) : contents(contents), line_index(line_index), type(type) {}
+CharType get_char_type(char ch)
+{
+  using namespace char_tests;
+  if(is_whitespace(ch)) return CharType::Whitespace;
+  if(is_digit(ch)) return CharType::Digit;
+  if(is_name_char(ch)) return CharType::NameChar;
+  if(is_operator_char(ch)) return CharType::Operator;
+  if(is_singleton(ch)) return CharType::Singleton;
+  return CharType::Unknown;
+}
 
+Token::Token(std::string contents, std::size_t line_index, TokenType type) : contents(contents), line_index(line_index), type(type) {}
 
 std::vector<Token> get_tokens_from_file(std::string filename)
 {
