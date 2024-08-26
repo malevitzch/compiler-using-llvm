@@ -30,9 +30,9 @@ namespace char_tests
 
 };
 
-std::vector<std::pair<std::string, TokenMetadata>> get_tokens_from_file(std::string filename)
+std::vector<Token> get_tokens_from_file(std::string filename)
 {
-  std::vector<std::pair<std::string, TokenMetadata>> tokens;
+  std::vector<Token> tokens;
   std::size_t line_number = 0;
   return tokens;
 }

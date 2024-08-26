@@ -30,13 +30,12 @@ namespace char_tests
 
 CharType get_char_type(char ch);
 
-
-//TODO: this should hold the string of the token so the function does not have pairs but just token with metadata
-struct TokenMetadata
+struct Token
 {
-  std::size_t line;
-  TokenType token_type;
-  TokenMetadata(size_t line, TokenType token_type);
+  std::string contents;
+  std::size_t line_index;
+  TokenType type;
+  Token(std::string contents, std::size_t line_index, TokenType type);
 };
 
-std::vector<std::pair<std::string, TokenMetadata>> get_tokens_from_file(std::string filename);
+std::vector<Token> get_tokens_from_file(std::string filename);
