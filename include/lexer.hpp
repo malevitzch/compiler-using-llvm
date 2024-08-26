@@ -35,7 +35,9 @@ struct Token
   std::string contents;
   std::size_t line_index;
   TokenType type;
+
   Token(std::string contents, std::size_t line_index, TokenType type);
+  Token() = default;
 };
 
 std::vector<Token> get_tokens_from_file(std::string filename);
