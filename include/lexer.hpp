@@ -11,12 +11,12 @@ enum class TokenType
 
 enum class CharType
 {
-  Whitespace,
-  Digit,
+  Whitespace, //anything that satisfies the isspace function
+  Digit, //digits from 0 to 9
   NameChar, //letters and underscores
-  Operator,
-  Singleton,
-  Unknown
+  Operator, //characters from a special list
+  Singleton, //basically brackets and semicolon
+  Unknown //anything that does not fit into any other category, this should be treated as an error, maybe assert for it when generating tokens
 };
 
 namespace char_tests
@@ -28,6 +28,7 @@ namespace char_tests
   bool is_singleton(char ch);
 };
 
+//returns the character type
 CharType get_char_type(char ch);
 
 struct Token
