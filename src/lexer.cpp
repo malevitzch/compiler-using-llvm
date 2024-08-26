@@ -19,7 +19,12 @@ namespace char_tests
     return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch == '_');
   }
 
-  bool is_operator_char(char ch) {} //TODO: implement
+  //TODO: make a different way to get operator characters
+  bool is_operator_char(char ch) 
+  {
+    static std::unordered_set<char> operator_chars = {'+', '-', '*', '/', '=', '!', '<', '>', '?'};
+    return operator_chars.count(ch);
+  } 
 
   bool is_singleton(char ch)
   {
