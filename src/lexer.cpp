@@ -63,9 +63,15 @@ std::vector<Token> get_tokens_from_file(std::string filename)
   std::vector<Token> tokens;
   std::size_t line_number = 0;
   
+  //TODO: implement
+  auto finish_token = []()
+  {
+      
+  };
+
   while(!file.eof())
   {
-
+    
   }
   return tokens;
 }
