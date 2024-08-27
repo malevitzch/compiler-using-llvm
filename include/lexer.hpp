@@ -6,7 +6,8 @@ enum class TokenType
   Operator, //anything that conists of the characters dedicated to operators
   Number, //consisting of digits only
   Word, //starts with letters or underscore, can have digits as non-first character
-  Singleton //a singular character that has a specific meaning (mostly brackets and semicolon)
+  Singleton, //a singular character that has a specific meaning (mostly brackets and semicolon)
+  None //a dummy type existing solely for the purpose of indicating that there is no token currently
 };
 
 enum class CharType
