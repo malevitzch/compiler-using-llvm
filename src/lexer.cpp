@@ -1,5 +1,7 @@
-#include "lexer.hpp"
 #include <unordered_set>
+#include <fstream>
+
+#include "lexer.hpp"
 
 namespace char_tests
 {
@@ -50,7 +52,20 @@ Token::Token(std::string contents, std::size_t line_index, TokenType type) : con
 
 std::vector<Token> get_tokens_from_file(std::string filename)
 {
+  std::ifstream file(filename);
+  
+  if(file.fail())
+  {
+    return {};
+    //TODO: file error here, but that's only once we do error handling  
+  }
+
   std::vector<Token> tokens;
   std::size_t line_number = 0;
+  
+  while(!file.eof())
+  {
+
+  }
   return tokens;
 }
