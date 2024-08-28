@@ -52,8 +52,11 @@ Token::Token(std::string contents, std::size_t line_index, TokenType type) : con
 
 std::vector<Token> get_tokens_from_file(std::string filename)
 {
+
   std::ifstream file(filename);
-  
+
+  file >> std::noskipws;
+
   if(file.fail())
   {
     return {};
@@ -63,15 +66,69 @@ std::vector<Token> get_tokens_from_file(std::string filename)
   std::vector<Token> tokens;
   std::size_t line_number = 0;
   
+  char cur_char;
+  std::string buffer = "";
+  TokenType token_type = TokenType::None;
+  
   //TODO: implement
-  auto finish_token = []()
+  auto finish_token = [&]() -> void
   {
-      
+    //TODO: operators and trie
+    if(buffer.empty()) return;
+    tokens.push_back(Token(buffer, line_number, token_type)); 
+    buffer = "";
+    token_type = TokenType::None;
   };
 
   while(!file.eof())
   {
+    file >> cur_char;
+    CharType char_type = get_char_type(cur_char);
+
+    if(char_type == CharType::Whitespace) 
+    {
+      finish_token();
+      continue;
+    }
+
+    if(char_type == CharType::Digit)
+    {
+
+      if(token_type != TokenType::Word && token_type != TokenType::Number)
+      {
+        finish_token();
+        token_type = TokenType::Number;
+      }
+      buffer += cur_char;
+
+    }
+
+    if(char_type == CharType::NameChar)
+    {
+      if(token_type != TokenType::Word) finish_token();
+      token_type = TokenType::Word;
+      buffer += cur_char;
+    }
     
+    if(char_type == CharType::Operator)
+    {
+      if(token_type != TokenType::Operator) finish_token();
+      token_type = TokenType::Operator;
+      buffer += cur_char;
+    }
+
+    if(char_type == CharType::Singleton)
+    {
+      finish_token();
+      tokens.push_back(Token(std::string(1, cur_char), line_number, TokenType::Singleton));
+    }
+    
+    if(char_type == CharType::Unknown)
+    {
+      //TODO: handle this
+    }
+
   }
+
   return tokens;
 }
