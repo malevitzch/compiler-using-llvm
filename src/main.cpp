@@ -14,5 +14,5 @@ int main()
   std::string filename;
   std::cin>>filename;
   auto tokens = get_tokens_from_file(filename);
-  for(auto token : tokens) std::cout << "[" << token.contents << "] ";
+  for(auto token : tokens) std::cout << "[" << token.str << "] ";
 }

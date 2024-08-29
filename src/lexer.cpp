@@ -48,7 +48,7 @@ CharType get_char_type(char ch)
   return CharType::Unknown;
 }
 
-Token::Token(std::string contents, std::size_t line_index, TokenType type) : contents(contents), line_index(line_index), type(type) {}
+Token::Token(std::string str, std::size_t line_index, TokenType type) : str(str), line_index(line_index), type(type) {}
 
 std::vector<Token> get_tokens_from_file(std::string filename)
 {

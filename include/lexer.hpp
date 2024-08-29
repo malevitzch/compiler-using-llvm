@@ -34,11 +34,11 @@ CharType get_char_type(char ch);
 
 struct Token
 {
-  std::string contents;
+  std::string str;
   std::size_t line_index;
   TokenType type;
 
-  Token(std::string contents, std::size_t line_index, TokenType type);
+  Token(std::string str, std::size_t line_index, TokenType type);
   Token() = default;
 };
 
