@@ -50,6 +50,28 @@ CharType get_char_type(char ch)
 
 Token::Token(std::string str, std::size_t line_index, TokenType type) : str(str), line_index(line_index), type(type) {}
 
+std::unordered_set<std::string> get_operator_symbols_noprefix()
+{
+  //TODO: replace the usage of this with Trie cause we actually need trie for stuff like -= 
+  static std::unordered_set<std::string> operator_symbols = 
+  {
+      "+", "-", "=", "*", "/",
+  };
+  return operator_symbols;
+}
+
+std::vector<Token> split_operator_token(Token token)
+{
+  //TODO: implement
+}
+
+std::vector<Token> split_operators(Token token)
+{
+  std::vector<Token> tokens;
+  //TODO: implement
+  return tokens;
+}
+
 std::vector<Token> get_tokens_from_file(std::string filename)
 {
 

@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <unordered_set>
 
 enum class TokenType
 {
@@ -41,5 +42,11 @@ struct Token
   Token(std::string str, std::size_t line_index, TokenType type);
   Token() = default;
 };
+
+std::unordered_set<std::string> get_operator_symbols_noprefix();
+
+std::vector<Token> split_operator_token(Token token);
+
+std::vector<Token> split_operators(std::vector<Token> tokens);
 
 std::vector<Token> get_tokens_from_file(std::string filename);
