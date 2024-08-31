@@ -65,10 +65,17 @@ std::vector<Token> split_operator_token(Token token)
   //TODO: implement
 }
 
-std::vector<Token> split_operators(Token token)
+std::vector<Token> split_operators(std::vector<Token> tokens)
 {
-  std::vector<Token> tokens;
-  //TODO: implement
+  std::vector<Token> split_tokens;
+  for(Token& token : tokens)
+  {
+    if(token.type == TokenType::Operator)
+    {
+      std::vector<Token> split = split_operator_token(token);
+      split_tokens.insert(split_tokens.end(), split.begin(), split.end());
+    }
+  }
   return tokens;
 }
 
