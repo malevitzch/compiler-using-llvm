@@ -1,5 +1,5 @@
 # Now build our tools
-add_executable(compiler main.cpp lexer.cpp)
+add_executable(compiler main.cpp lexer.cpp trie.cpp)
 
 # Find the libraries that correspond to the LLVM components
 # that we wish to use

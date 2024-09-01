@@ -2,6 +2,7 @@
 #include <fstream>
 
 #include "lexer.hpp"
+#include "trie.hpp"
 
 namespace char_tests
 {
