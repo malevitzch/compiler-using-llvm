@@ -49,6 +49,8 @@ CharType get_char_type(char ch)
   return CharType::Unknown;
 }
 
+Trie get_operator_symbol_trie();
+
 Token::Token(std::string str, std::size_t line_index, TokenType type) : str(str), line_index(line_index), type(type) {}
 
 std::unordered_set<std::string> get_operator_symbols_noprefix()
@@ -63,6 +65,7 @@ std::unordered_set<std::string> get_operator_symbols_noprefix()
 
 std::vector<Token> split_operator_token(Token token)
 {
+  //std::vector<std::string> token_strings = (token.str);
   //TODO: implement
 }
 

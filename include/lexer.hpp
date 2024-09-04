@@ -4,6 +4,9 @@
 #include <string>
 #include <unordered_set>
 
+//forward declaration
+class Trie;
+
 enum class TokenType
 {
   Operator, //anything that conists of the characters dedicated to operators
@@ -34,6 +37,8 @@ namespace char_tests
 
 //returns the character type
 CharType get_char_type(char ch);
+
+Trie get_operator_symbol_trie();
 
 struct Token
 {
