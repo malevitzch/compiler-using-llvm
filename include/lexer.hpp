@@ -38,7 +38,7 @@ namespace char_tests
 //returns the character type
 CharType get_char_type(char ch);
 
-Trie get_operator_symbol_trie();
+Trie& get_operator_symbol_trie();
 
 struct Token
 {
@@ -50,7 +50,7 @@ struct Token
   Token() = default;
 };
 
-std::unordered_set<std::string> get_operator_symbols_noprefix();
+std::unordered_set<std::string>& get_operator_symbols_noprefix();
 
 std::vector<Token> split_operator_token(Token token);
 

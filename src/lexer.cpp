@@ -49,24 +49,34 @@ CharType get_char_type(char ch)
   return CharType::Unknown;
 }
 
-Trie get_operator_symbol_trie();
+Trie& get_operator_symbol_trie()
+{
+  std::unordered_set<std::string>& operator_symbols = get_operator_symbols_noprefix();
+  static Trie operator_trie(std::vector<std::string>(operator_symbols.begin(), operator_symbols.end()));
+  return operator_trie;
+}
 
 Token::Token(std::string str, std::size_t line_index, TokenType type) : str(str), line_index(line_index), type(type) {}
 
-std::unordered_set<std::string> get_operator_symbols_noprefix()
+std::unordered_set<std::string>& get_operator_symbols_noprefix()
 {
   //TODO: replace the usage of this with Trie cause we actually need trie for stuff like -= 
   static std::unordered_set<std::string> operator_symbols = 
   {
-      "+", "-", "=", "*", "/",
+      "+", "-", "=", "*", "/", "+=", "-=", "*=", "/="
   };
   return operator_symbols;
 }
 
 std::vector<Token> split_operator_token(Token token)
 {
-  //std::vector<std::string> token_strings = (token.str);
-  //TODO: implement
+  Trie op_trie = get_operator_symbol_trie();
+  std::vector<Token> tokens;
+  for(std::string str : op_trie.split_string(token.str))
+  {
+    tokens.push_back(Token(str, token.line_index, TokenType::Operator));
+  }
+  return tokens;
 }
 
 std::vector<Token> split_operators(std::vector<Token> tokens)
