@@ -3,5 +3,4 @@
 
 
 # TODO:
-- fill out the main section of README (lol)
-- import trie from earlier 
+- fill out the main section of README (lol) 
