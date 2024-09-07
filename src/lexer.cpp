@@ -89,8 +89,9 @@ std::vector<Token> split_operators(std::vector<Token> tokens)
       std::vector<Token> split = split_operator_token(token);
       split_tokens.insert(split_tokens.end(), split.begin(), split.end());
     }
+    else split_tokens.push_back(token);
   }
-  return tokens;
+  return split_tokens;
 }
 
 std::vector<Token> get_tokens_from_file(std::string filename)
@@ -172,6 +173,6 @@ std::vector<Token> get_tokens_from_file(std::string filename)
     }
 
   }
-
+  tokens = split_operators(tokens);
   return tokens;
 }
