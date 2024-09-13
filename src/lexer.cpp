@@ -114,7 +114,6 @@ std::vector<Token> get_tokens_from_file(std::string filename)
   std::string buffer = "";
   TokenType token_type = TokenType::None;
   
-  //TODO: implement
   auto finish_token = [&]() -> void
   {
     //TODO: operators and trie
