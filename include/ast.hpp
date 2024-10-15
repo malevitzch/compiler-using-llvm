@@ -1,5 +1,6 @@
 #include <memory>
 #include <string>
+
 namespace ast
 {
   class ASTNode
@@ -30,6 +31,7 @@ namespace ast
     std::string name;
   public:
     BinaryOperator(std::unique_ptr<Expression> lhs, std::unique_ptr<Expression> rhs, std::string name); //TODO: 3rd argument is an object that represents the operator itself.
+    void codegen();
   };
 
   class UnaryOperator : public Expression
