@@ -5,3 +5,6 @@ The goal of this project is to explore LLVM code generation and create a compile
 2. Basic code generation (variables and a print statement)
 3. Control flow
 4. Functions
+# todo
+- link ast and parser to the project in cmake
+- create an internal representation for operators (or use one provided by llvm)
