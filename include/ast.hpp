@@ -47,12 +47,16 @@ namespace ast
   public:
   };
 
+  //NOTE: Constants should probably be kept somewhere in a different type and the constant class should just reference the constant. 
   class Constant : public Value
   {
   private:
+    std::string name;
   public:
+    Constant(std::string name); //TODO: The argument should probably be something else than just the name.
   };
   
+  //NOTE: Variables should be done the same way, the Variable class only contains a reference to an external structure that represents the var
   class Variable : public Value
   {
   private:
