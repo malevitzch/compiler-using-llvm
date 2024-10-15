@@ -41,6 +41,7 @@ namespace ast
     std::string name;
   public:
     UnaryOperator(std::unique_ptr<Expression> operand, std::string name); //TODO: 2nd argument is an object that represents the operator itself.
+    void codegen();
   };
   
   class Value : public Expression
