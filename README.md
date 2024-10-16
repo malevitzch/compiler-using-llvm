@@ -8,3 +8,4 @@ The goal of this project is to explore LLVM code generation and create a compile
 # todo
 - link parser to the project in cmake
 - create an internal representation for operators (or use one provided by llvm)
+- implemented an LR parser
