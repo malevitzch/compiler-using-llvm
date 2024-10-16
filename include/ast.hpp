@@ -28,6 +28,7 @@ namespace ast
   {
   private:
   public:
+    virtual std::string type() = 0; //returns the type of the expression result, used to determine necessary casts etc. TODO: reconsider
   };
 
   class BinaryOperator : public Expression
