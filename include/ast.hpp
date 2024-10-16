@@ -20,7 +20,6 @@ namespace ast
   {
   private:
   public:
-    virtual void eval() = 0;
   };
 
   class BinaryOperator : public Expression
