@@ -32,7 +32,7 @@ namespace char_tests
   bool is_singleton(char ch)
   {
     //TODO: move the list of singleton characters somewhere?
-    static std::unordered_set<char> singleton_chars = {'(', ')', ';', ':'};
+    static std::unordered_set<char> singleton_chars = {'(', ')', ';', ':', ','};
     return singleton_chars.count(ch);
   }
 
