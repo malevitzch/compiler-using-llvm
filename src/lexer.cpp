@@ -25,14 +25,14 @@ namespace char_tests
   //TODO: make a different way to get operator characters
   bool is_operator_char(char ch) 
   {
-    static std::unordered_set<char> operator_chars = {'+', '-', '*', '/', '=', '!', '<', '>', '?'};
+    static std::unordered_set<char> operator_chars = {'+', '-', '*', '/', '=', '!', '<', '>', '?', ','};
     return operator_chars.count(ch);
   } 
 
   bool is_singleton(char ch)
   {
     //TODO: move the list of singleton characters somewhere?
-    static std::unordered_set<char> singleton_chars = {'(', ')', ';', ':', ','};
+    static std::unordered_set<char> singleton_chars = {'(', ')', ';', ':'};
     return singleton_chars.count(ch);
   }
 
@@ -63,7 +63,7 @@ std::unordered_set<std::string>& get_operator_symbols_noprefix()
   //TODO: replace the usage of this with Trie cause we actually need trie for stuff like -= 
   static std::unordered_set<std::string> operator_symbols = 
   {
-      "+", "-", "=", "*", "/", "+=", "-=", "*=", "/="
+      "+", "-", "=", "*", "/", "+=", "-=", "*=", "/=", ",",
   };
   return operator_symbols;
 }
