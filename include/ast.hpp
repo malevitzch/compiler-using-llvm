@@ -1,5 +1,6 @@
 #include <memory>
 #include <string>
+#include <vector>
 
 namespace ast
 {
@@ -13,6 +14,13 @@ namespace ast
   class Statement : public ASTNode
   {
   private:
+  public:
+  };
+
+  class Block : public ASTNode
+  {
+  private:
+    std::vector<std::unique_ptr<Statement>> statements;
   public:
   };
 
