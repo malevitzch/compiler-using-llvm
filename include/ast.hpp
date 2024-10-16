@@ -17,7 +17,7 @@ namespace ast
   public:
   };
 
-  class Block : public ASTNode
+  class Block : public Statement
   {
   private:
     std::vector<std::unique_ptr<Statement>> statements;
