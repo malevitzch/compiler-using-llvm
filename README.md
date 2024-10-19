@@ -8,5 +8,6 @@ The goal of this project is to explore LLVM code generation and create a compile
 5. Functions
 # todo
 - link parser to the project in cmake
+- use an LR(1) parser rather than writing my own since that would be too much work for nothing
 - create an internal representation for operators (or use one provided by llvm)
 - implemented an LR parser
